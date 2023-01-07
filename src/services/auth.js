@@ -1,4 +1,4 @@
-import { getUserByEmail } from "../../dbFiles/dbOperations.js";
+import { getUserByEmail } from "../../db/dbOperations.js";
 import bcrypt from "bcrypt";
 import { generateToken, verify } from "./jwt.js";
 

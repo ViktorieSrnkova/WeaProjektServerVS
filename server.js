@@ -7,7 +7,7 @@ import {
   createNewTodoForUser,
   updateTodoForUser,
   deleteTodoForUser,
-} from "./dbFiles/dbOperations.js";
+} from "./db/dbOperations.js";
 import { login } from "./src/services/auth.js";
 import cookieParser from "cookie-parser";
 import env from "./src/services/env.js";
