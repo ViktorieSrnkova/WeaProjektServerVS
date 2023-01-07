@@ -18,12 +18,12 @@ const conn = mysql.createConnection({
 conn.connect(function (err) {
   ///////>>> this is where the deployment crashes
   if (err)
-    throw err.message({
+    throw {
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       host: process.env.DB_SERVER,
-    });
+    };
   console.log("database connected");
 });
 
