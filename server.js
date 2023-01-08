@@ -91,11 +91,11 @@ app.get("/validate", reqLogin, async (req, res) => {
   return res.json(payload);
 });
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Welcome to the home page");
 });
 
-app.use("/db", async (req, res) => {
+app.get("/db", async (req, res) => {
   const userTodos = await getTodosByUser(1);
   res.json(userTodos);
 });
