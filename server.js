@@ -96,6 +96,7 @@ app.use("/", (req, res) => {
 
 app.use("/db", async (req, res) => {
   const userTodos = await getTodosByUser(1);
+  resl.json(userTodos);
 });
 
 const port = process.env.PORT || 5000;
