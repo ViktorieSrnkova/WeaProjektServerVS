@@ -19,7 +19,6 @@ const conn = mysql.createConnection({
 });
 
 conn.connect(function (err) {
-  ///////>>> this is where the deployment crashes
   if (err) throw err;
   console.log("database connected");
 });

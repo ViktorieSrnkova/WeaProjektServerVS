@@ -94,6 +94,10 @@ app.use("/", (req, res) => {
   res.send("Welcome to the home page");
 });
 
+app.use("/db", async (req, res) => {
+  const userTodos = await getTodosByUser(1);
+});
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
