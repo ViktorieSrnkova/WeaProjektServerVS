@@ -74,6 +74,7 @@ app.post("/login", async (req, res) => {
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24,
   });
+  res.send("Now on login");
   return res.json(token);
 });
 
