@@ -2,12 +2,6 @@ import mysql from "mysql";
 import env from "../src/services/env.js";
 env();
 
-console.log({
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  host: process.env.DB_SERVER,
-});
 const conn = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,

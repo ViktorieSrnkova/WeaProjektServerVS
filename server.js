@@ -90,6 +90,10 @@ app.get("/validate", reqLogin, async (req, res) => {
   return res.json(payload);
 });
 
+app.use("/", (req, res) => {
+  res.send("Welcome to the home page");
+});
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
