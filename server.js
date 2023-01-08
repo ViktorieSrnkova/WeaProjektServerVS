@@ -60,7 +60,7 @@ app.delete("/todo", reqLogin, async (req, res) => {
   res.json(result);
 });
 
-app.get("/login", async (req, res) => {
+app.post("/login", async (req, res) => {
   const email = req.body.user;
   const passwd = req.body.pwd;
   if (email === undefined || passwd === undefined) {
