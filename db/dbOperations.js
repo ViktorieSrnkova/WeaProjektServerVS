@@ -3,7 +3,7 @@ import conn from "./dbConfig.js";
 /////////////////////// vysledky z databaze ///////////////////////
 export const getUserByEmail = async (email) => {
   return new Promise((resolve, reject) => {
-    const sql = "SELECT * FROM Member WHERE email = ?";
+    const sql = "SELECT * FROM member WHERE email = ?";
 
     conn.query(sql, [email], function (err, result) {
       if (err) return reject(err);
@@ -14,7 +14,7 @@ export const getUserByEmail = async (email) => {
 
 export const getTodosByUser = async (Member_ID) => {
   return new Promise((resolve, reject) => {
-    const sql = "SELECT * FROM Todos WHERE Member_ID = ?";
+    const sql = "SELECT * FROM todos WHERE Member_ID = ?";
 
     conn.query(sql, [Member_ID], function (err, result) {
       if (err) return reject(err);
@@ -25,7 +25,7 @@ export const getTodosByUser = async (Member_ID) => {
 
 export const getTodoByID = async (ID) => {
   return new Promise((resolve, reject) => {
-    const sql = "SELECT * FROM Todos WHERE ID_todo = ?";
+    const sql = "SELECT * FROM todos WHERE ID_todo = ?";
     conn.query(sql, [ID], function (err, result) {
       if (err) return reject(err);
       return resolve(result[0]);
@@ -37,7 +37,7 @@ export const getTodoByID = async (ID) => {
 export const createNewTodoForUser = async (object) => {
   return new Promise((resolve, reject) => {
     const sql =
-      "INSERT INTO Todos (todo_text,priority,completed,created_at,Member_ID) VALUES (?,?,?,curdate(),?)";
+      "INSERT INTO todos (todo_text,priority,completed,created_at,Member_ID) VALUES (?,?,?,curdate(),?)";
     conn.query(
       sql,
       [object.todo_text, object.priority, object.completed, object.Member_ID],
@@ -52,7 +52,7 @@ export const createNewTodoForUser = async (object) => {
 export const updateTodoForUser = async (object) => {
   return new Promise((resolve, reject) => {
     const sql =
-      "UPDATE Todos SET todo_text=?,priority=?,completed=? WHERE ID_todo=? AND Member_ID=?";
+      "UPDATE todos SET todo_text=?,priority=?,completed=? WHERE ID_todo=? AND Member_ID=?";
     conn.query(
       sql,
       [
@@ -72,7 +72,7 @@ export const updateTodoForUser = async (object) => {
 
 export const deleteTodoForUser = async (object) => {
   return new Promise((resolve, reject) => {
-    const sql = "DELETE FROM Todos WHERE ID_todo=? AND Member_ID=?";
+    const sql = "DELETE FROM todos WHERE ID_todo=? AND Member_ID=?";
     conn.query(sql, [object.ID_todo, object.Member_ID], function (err, result) {
       if (err) return reject(err);
       return resolve(result);
