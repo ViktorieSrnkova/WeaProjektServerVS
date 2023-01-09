@@ -71,6 +71,8 @@ app.post("/login", async (req, res) => {
     return res.sendStatus(401);
   }
   res.cookie("token", token, {
+    sameSite: "none",
+    secure: true,
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24,
   });
